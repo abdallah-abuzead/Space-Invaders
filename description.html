@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="css/core.css">
+    <link rel="stylesheet" type="text/css" href="css/typeography.css">
+    <link rel="stylesheet" href="css/description.css">
+    <style>
+            /* Styling needed for a fullscreen canvas and no scrollbars. */
+            body, html { 
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            }
+            #starfield {
+                width:100%;
+                height:100%;
+                z-index: -1;
+                position: absolute;
+                left: 0px;
+                top: 0px;
+            }
+            #gamecontainer {
+                width: 1200px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            #gamecanvas { 
+                width: 1200px;
+                height: 600px;
+            }
+            #info {
+                width: 1200px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        </style>
+</head>
+<body>
+    <div id="starfield"></div>
+    <div class="description">
+        <img src="images/Eric.png" id="charImg" width="300" height="400">
+        <div class="text">
+            <p id="charDescript">
+            </p>
+        </div>
+        <div class="empty"></div>
+        <button id="back">BACK</button>
+        <button id="start">START GAME</button>
+    </div>
+
+    <script src="js/description.js"></script>
+    <script src="js/starfield.js"></script>
+    <script src="js/spaceinvaders.js"></script>
+    <script>
+        //  Create the starfield.
+        var container = document.getElementById('starfield');
+        var starfield = new Starfield();
+        starfield.initialise(container);
+        starfield.start();
+
+    </script>
+
+</body>
+</html>

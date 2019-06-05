@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>slideshow</title>
+        <link rel="stylesheet" type="text/css" href="css/core.css">
+        <link rel="stylesheet" type="text/css" href="css/typeography.css">
+        <link rel="stylesheet" type="text/css" href="css/slidShow.css">
+        <style>
+            /* Styling needed for a fullscreen canvas and no scrollbars. */
+            body, html { 
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            }
+            #starfield {
+                width:100%;
+                height:100%;
+                z-index: -1;
+                position: absolute;
+                left: 0px;
+                top: 0px;
+            }
+            #gamecontainer {
+                width: 1200px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            #gamecanvas { 
+                width: 1200px;
+                height: 600px;
+            }
+            #info {
+                width: 1200px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        </style>
+    </head>
+    <body>
+            <!-- continar -->
+        <div id="starfield"></div>
+        <!-- <h1>Select Your Character</h1> -->
+        <!-- <div id="gamecontainer"> -->
+                <h1>Select Your Character </Select></h1>
+        <div id="continar" >
+                    <!-- pilot image -->
+            <div id="pilot"> <img class="pilotimg"src="images/Eric.png"></div>
+                        
+            <div id="content">
+                             <!-- prgraph   -->
+                        <div id="pragraph"><p>My Name is Eric ,I am from Earth planet ,i will fight the enemies to 
+                            protect you, i will use blackSpaceShip Rocket with :<br>velocity:10km/s<br>speed:20m/s"</p>
+                        </div>
+                              <!-- Rocket -->
+                        <div id="Rocket">
+                                    <!-- imge -->
+                                <img id="rocket_img" src="images/blackSpaceShip.ico">
+                        </div>
+                </div>
+
+            <button id="prev" >&#10095;</button>
+            <button id="next">&#10094;</button>
+        </div>
+        <button id='backbtn' class="back">Back</button>
+        <button id='selectbtn' class="select">Next</button>
+    <!-- </div> -->
+    <script src="js/slidShow.js"></script>
+        <script src="js/starfield.js"></script>
+        <script src="js/spaceinvaders.js"></script>
+        <script>
+            //  Create the starfield.
+            var container = document.getElementById('starfield');
+            var starfield = new Starfield();
+            starfield.initialise(container);
+            starfield.start();
+
+        </script>
+        
+    </body>
+</html>

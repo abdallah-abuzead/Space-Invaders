@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="css/core.css">
+    <link rel="stylesheet" type="text/css" href="css/typeography.css">
+    <link rel="stylesheet" href="css/credits.css">
+    <style>
+        /* Styling needed for a fullscreen canvas and no scrollbars. */
+        body,
+        html {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        #starfield {
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+        }
+
+        #gamecontainer {
+            width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        #gamecanvas {
+            width: 800px;
+            height: 600px;
+        }
+
+        #info {
+            width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="starfield"></div>
+    <h1>CREDITS</h1>
+    <div class="credits">
+        <p>Mohamed Safaa Abdel-baky</p>
+        <p>Mahmoud Ahmed Shetaya</p>
+        <p>Mohamed Nageh Abdrabouh</p>
+        <p>Abdallah Saad Abuzead</p>
+        <p>Ibrahim Elarakey Elsafey</p>
+
+    </div>
+    <button id='back' class="back">BACK</button>
+
+
+    <script src="js/starfield.js"></script>
+    <script src="js/spaceinvaders.js"></script>
+    <script>
+        var btnBack = document.getElementById('back');
+        btnBack.addEventListener('click', function () { window.location.href = "login.html"; });
+        
+        //  Create the starfield.
+        var container = document.getElementById('starfield');
+        var starfield = new Starfield();
+        starfield.initialise(container);
+        starfield.start();
+
+    </script>
+</body>
+
+</html>

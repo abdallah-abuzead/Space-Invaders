@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" type="text/css" href="css/core.css">
+  <link rel="stylesheet" type="text/css" href="css/typeography.css">
+  <style>
+    /* Styling needed for a fullscreen canvas and no scrollbars. */
+    body,
+    html {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+
+    #starfield {
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      position: absolute;
+      left: 0px;
+      top: 0px;
+    }
+
+    #gamecontainer {
+      width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    #gamecanvas {
+      width: 800px;
+      height: 600px;
+    }
+
+    #info {
+      width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    #mainDiv {
+      width: 700px;
+      height: 150px;
+      position: fixed;
+      bottom: 50%;
+      left: 50%;
+      transform: translate(-50%);
+      border: 2in;
+      border-color: black;
+      display: block;
+      background: #80808085;
+      padding-left: 20px;
+      padding-top: 20px;
+      padding-right: 20px;
+      border-radius: 10px;
+    }
+
+    .rightImage {
+      float: right;
+    }
+
+    .leftImage {
+      margin-top: 40px;
+    }
+
+    h1 {
+      text-align: center;
+      letter-spacing: 20px;
+      margin-top: 75px;
+      color: #83b768;
+    }
+
+    .back {
+      padding: 10px;
+      border-radius: 25px;
+      color: #a5c792;
+      letter-spacing: 5px;
+      width: 200px;
+      background-color: #010b2f;
+      border: 2px solid #02155d;
+      font-size: 20px;
+      margin-left: 50px;
+      outline: none;
+      margin-top: 300px;
+    }
+
+    .back:hover {
+      cursor: pointer;
+      background-color: #010b3f;
+    }
+
+    .back:active {
+      width: 198px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="starfield"></div>
+  <h1>Controls</h1>
+  <div id="mainDiv">
+    <img src="images/fireControl.png" alt="fireControl.png" class="leftImage">
+    <img src="images/arrowControl.png" alt="arrowControl.png" class="rightImage">
+  </div>
+  <button id='back' class="back">BACK</button>
+
+  <script src="js/starfield.js"></script>
+  <script src="js/spaceinvaders.js"></script>
+  <script>
+    var btnBack = document.getElementById('back');
+    btnBack.addEventListener('click', function () { window.location.href = "login.html"; });
+
+    //  Create the starfield.
+    var container = document.getElementById('starfield');
+    var starfield = new Starfield();
+    starfield.initialise(container);
+    starfield.start();
+
+  </script>
+</body>
+
+</html>

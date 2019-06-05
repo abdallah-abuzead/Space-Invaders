@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Space Invaders</title>
+    <link rel="stylesheet" type="text/css" href="css/core.css">
+    <link rel="stylesheet" type="text/css" href="css/typeography.css">
+    <link rel="stylesheet" type="text/css" href="css/c.css">
+    <style>
+        .back {
+            padding: 10px;
+            border-radius: 25px;
+            color: #a5c792;
+            letter-spacing: 5px;
+            width: 200px;
+            background-color: #010b2f;
+            border: 2px solid #02155d;
+            font-size: 20px;
+            margin-left: 50px;
+            outline: none;
+            margin-top: -100px;
+        }
+
+        .back:hover {
+            cursor: pointer;
+            background-color: #010b3f;
+        }
+
+        .back:active {
+            width: 198px;
+        }
+
+        /* Styling needed for a fullscreen canvas and no scrollbars. */
+        body,
+        html {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        #starfield {
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+        }
+
+        #gamecontainer {
+            width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        #gamecanvas {
+            width: 800px;
+            height: 600px;
+        }
+
+        #info {
+            width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="starfield"></div>
+    <!-- <div id="gamecontainer"> -->
+    <div class="log">
+        <img src="images/logo.png" class="small">
+
+        <h1> Log In Here</h1>
+        <form id='form'>
+            <p>Username </p>
+            <input type="text" id='uName' placeholder="Enter UserName">
+            <input type="submit" name="submit" value="login" onclick="takeInput()">
+        </form>
+        <button id='controls' class="back">Controls</button>
+        <button id='credits' class="back" style='margin-top:25px'>Credits</button>
+    </div>
+    <!-- </div> -->
+
+    <script src="js/starfield.js"></script>
+    <script src="js/spaceinvaders.js"></script>
+    <script>
+        function takeInput() {
+            // alert(document.getElementById('uName').value);
+            if (document.getElementById('uName').value == "") {
+                alert("You must enter the name.");
+                var form = document.getElementById('form');
+                form.addEventListener('submit', function (e) { e.preventDefault(); });
+            }
+            if(document.getElementById('uName').value != ""){
+                window.localStorage.setItem('name', document.getElementById('uName').value);
+                var form = document.getElementById('form');
+                form.addEventListener('submit', function (e) { e.preventDefault(); });
+                window.location.href = "slidShow.html";
+            }
+        }
+
+        var btnBack = document.getElementById('credits');
+        btnBack.addEventListener('click',function(){window.location.href = "credits.html";});
+
+        var btnBack = document.getElementById('controls');
+        btnBack.addEventListener('click',function(){window.location.href = "control.html";});
+
+        //  Create the starfield.
+        var container = document.getElementById('starfield');
+        var starfield = new Starfield();
+        starfield.initialise(container);
+        starfield.start();
+
+    </script>
+</body>
+
+</html>
